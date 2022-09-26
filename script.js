@@ -111,7 +111,7 @@
             let title = noteTitle.value.trim();
             let body = noteBody.innerHTML.trim();
             let bodyText = noteBody.textContent.trim();
-            if(!title && !body){
+            if(!title && !bodyText){
                alert("Write something");
                return
             }
