@@ -14,6 +14,7 @@
     const textUnderline = document.querySelector(".text-underline");
     const textCopy = document.querySelector(".text-copy");
     const topTitle = document.querySelector(".top-title");
+  
     
     let cardColors = ["card-color1", "card-color2", "card-color3", "card-color4", "card-color5"]
     let notes = [];
@@ -38,6 +39,7 @@
     textItalic.addEventListener("mousedown", handleTextItalic);
     textUnderline.addEventListener("mousedown", handleTextUnderline);
     textCopy.addEventListener("click", handleTextCopy);
+    
 
 
 
@@ -67,6 +69,7 @@
     function handleTextBold(){
     
             // Execute command if user presses the SHIFT button:
+             
              document.execCommand("bold", false, null);
              return false;
         
@@ -83,6 +86,7 @@
         document.execCommand("underline", false, null);
         return false;
     }
+    
 
     function handleTextCopy(){
   
@@ -103,9 +107,6 @@
    
 
   
-
-     
- 
 
 
     function handleSaveClick(){
@@ -170,8 +171,10 @@
               
                 let cardTemplate = templates.content.querySelector(".card");
                 let card = document.importNode(cardTemplate, true);
-        
-        
+
+                let cardDeleteBtn = card.querySelector(".card-delete");
+                cardDeleteBtn.addEventListener("click", handleDeleteClick)
+
                 let cardTitle = card.querySelector(".card-title");
                 cardTitle.textContent = title;
             
@@ -196,6 +199,8 @@
                 container.append(card);
         
                 card.addEventListener("click", handleCardClick)
+                
+    
                 
         }
 
@@ -235,6 +240,28 @@
    
    
   }
+
+
+  function handleDeleteClick(event){
+    console.log("Before", notes)
+  
+    const confirmDelete = confirm("Are you sure you want to delete this note?");
+
+    if (confirmDelete) {
+        let card = event.target.parentNode;
+        let cardId = card.dataset.cardId;
+        let newNotes = notes.filter(note => note.id != cardId);
+     
+        notes = newNotes;
+        console.log("After", notes)
+
+        container.removeChild(card);
+    }
+
+    event.stopPropagation()
+ }
+    
+
 
 
    
