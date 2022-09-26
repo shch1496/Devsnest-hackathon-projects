@@ -55,6 +55,7 @@
     transition: transform 0.7s ease-in-out;
     cursor: pointer;
     overflow-wrap: break-word;
+
     border-top: 7px solid  #33332d;
    
   
@@ -245,7 +246,10 @@
     margin-right: 0.5rem;
     margin-top: 3%;
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> d78f3c21f89720e4467252b75461ba07d7f0334f
   .toolbar *{
     padding-left: 0.5rem;
     padding-right: 0.5em;
@@ -257,8 +261,11 @@
     font-weight: bold;
 }
 }
+<<<<<<< HEAD
 
 .note-date {
   margin-bottom: 1em;
   color: gray;
 }
+=======
+>>>>>>> d78f3c21f89720e4467252b75461ba07d7f0334f
