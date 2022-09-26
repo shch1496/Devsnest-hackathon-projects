@@ -192,7 +192,9 @@
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
-    overflow: hidden;
+
+  
+
 }
 
 
@@ -245,6 +247,10 @@
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     margin-top: 3%;
+  }
+
+  .note-body {
+    max-width: 220px;
   }
 
   .toolbar *{
