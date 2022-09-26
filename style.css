@@ -55,6 +55,7 @@
     transition: transform 0.7s ease-in-out;
     cursor: pointer;
     overflow-wrap: break-word;
+    border-top: 7px solid  #33332d;
    
   
   }
@@ -255,6 +256,9 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
+}
 
-
+.note-date {
+  margin-bottom: 1em;
+  color: gray;
 }
