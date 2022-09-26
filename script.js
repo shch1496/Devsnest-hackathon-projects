@@ -15,10 +15,11 @@
     const textCopy = document.querySelector(".text-copy");
     const topTitle = document.querySelector(".top-title");
     
+    let cardColors = ["card-color1", "card-color2", "card-color3", "card-color4", "card-color5"]
     let notes = [];
     // let selectedText = "";
     //Selcetion range
-    let range;
+    // let range;
 
     let selectedNoteId, selectedNote;
 
@@ -41,20 +42,20 @@
 
 
 
-    function getSelectedText() {  
-      let selection = document.getSelection()
-      range = selection.getRangeAt(0);
-    }
+    // function getSelectedText() {  
+    //   let selection = document.getSelection()
+    //   range = selection.getRangeAt(0);
+    // }
 
-    noteBody.addEventListener("selectstart", () => {
+    // noteBody.addEventListener("selectstart", () => {
 
-      document.addEventListener("selectionchange", getSelectedText);
-    });
+    //   document.addEventListener("selectionchange", getSelectedText);
+    // });
 
 
-    noteBody.addEventListener("mouseleave", () => {
-        document.removeEventListener("selectionchange", getSelectedText);
-    })
+    // noteBody.addEventListener("mouseleave", () => {
+    //     document.removeEventListener("selectionchange", getSelectedText);
+    // })
 
 
 
@@ -176,7 +177,12 @@
                
                 card.setAttribute("data-card-id", id);
                 
-              
+                // Random nos between 0 to 4
+                let cardColorIdx = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+                let generateRandomCardColors = cardColors[cardColorIdx];
+
+                card.classList.add(generateRandomCardColors)
+
                 container.append(card);
         
                 card.addEventListener("click", handleCardClick)
