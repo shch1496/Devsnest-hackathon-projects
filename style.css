@@ -87,14 +87,14 @@ background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox=
   }
 
 
- 
+/*  
   @keyframes tilt-shaking {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(5deg); }
     50% { transform: rotate(0eg); }
     75% { transform: rotate(-5deg); }
     100% { transform: rotate(0deg); }
-  }
+  } */
 
   button {
     box-shadow: -3px 5px #33332d;

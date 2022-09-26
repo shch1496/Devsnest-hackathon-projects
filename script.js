@@ -179,8 +179,8 @@
 
 
         closeNote.dispatchEvent(new Event("click")); 
-        noteBody.innerText = ""
-        noteTitle.value = ""
+        // noteBody.innerText = ""
+        // noteTitle.value = ""
     
         
 
@@ -230,6 +230,8 @@
     
     
     closeNote.addEventListener("click", function(){
+        selectedNote = ""
+        selectedNoteId =""
         notepad.close();
     
     })
