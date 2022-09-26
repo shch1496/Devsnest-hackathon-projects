@@ -178,7 +178,7 @@
 .note-body {
     border: none;
     outline: none;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .note-title {
@@ -192,8 +192,7 @@
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
-
-  
+    max-width: 430px;
 
 }
 
