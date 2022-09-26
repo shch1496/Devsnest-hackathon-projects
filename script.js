@@ -167,7 +167,7 @@
         
                 // push new note to the array
                 notes.push(newNote);
-                
+              
                 let cardTemplate = templates.content.querySelector(".card");
                 let card = document.importNode(cardTemplate, true);
         
@@ -199,7 +199,7 @@
                 
         }
 
-
+        
         closeNote.dispatchEvent(new Event("click")); 
         // noteBody.innerText = ""
         // noteTitle.value = ""
