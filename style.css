@@ -49,15 +49,17 @@
     /* object-fit: cover; */
     border-radius: 10px;
     /* background-color: #FFFFF0; */
-    background: #f5f6f7;
+    background: hsl(228, 58%, 86%);
   
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 30px;
     transition: transform 0.7s ease-in-out;
     cursor: pointer;
     overflow-wrap: break-word;
-
-    border-top: 7px solid  #33332d;
+  
+    border-top: 10px solid  #33332d;
+    border-bottom: 1px solid  #33332d;
+  
    
   
   }
