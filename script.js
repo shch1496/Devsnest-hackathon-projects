@@ -32,10 +32,10 @@
 
    
     saveNote.addEventListener("click", handleSaveClick);
-    // textBold.addEventListener("click", handleTextBold);
-    textBold.addEventListener("click", handleTextBold);
-    textItalic.addEventListener("click", handleTextItalic);
-    textUnderline.addEventListener("click", handleTextUnderline);
+    textBold.addEventListener("mousedown", handleTextBold);
+
+    textItalic.addEventListener("mousedown", handleTextItalic);
+    textUnderline.addEventListener("mousedown", handleTextUnderline);
     textCopy.addEventListener("click", handleTextCopy);
 
 
@@ -55,26 +55,32 @@
     noteBody.addEventListener("mouseleave", () => {
         document.removeEventListener("selectionchange", getSelectedText);
     })
-   
 
+
+
+    noteBody.designMode = "on";
  
+        
+
+
     function handleTextBold(){
-        const strongElement = document.createElement("strong");
-        range.surroundContents(strongElement);
-        
-    }
-        
     
+            // Execute command if user presses the SHIFT button:
+             document.execCommand("bold", false, null);
+             return false;
+        
+          
+    }
 
     function handleTextItalic(){
-        const italicElement = document.createElement("em");
-        range.surroundContents(italicElement);
+        document.execCommand("italic", false, null);
+        return false;
     }
 
 
     function handleTextUnderline(){
-        const underlineElement = document.createElement("u");
-        range.surroundContents(underlineElement);
+        document.execCommand("underline", false, null);
+        return false;
     }
 
     function handleTextCopy(){
