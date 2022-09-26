@@ -64,11 +64,15 @@ background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox=
     border-top: 10px solid  #33332d;
     background-color: #acd3c1;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2308050c' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+
+ 
   }
 
   .card > .card-title{
     text-align: center;
     font-size: 1.5rem;
+        
+ 
 
   }
 
@@ -189,6 +193,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox=
 .note-title {
     font-size: 2rem;
     font-weight: bold;
+ 
 }
 
 .note-body {
@@ -272,7 +277,11 @@ background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox=
 
 .note-date {
   margin-bottom: 1em;
-  color: gray;
+  color: rgb(82, 78, 78);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  
+
 }
 
 .card-color1{

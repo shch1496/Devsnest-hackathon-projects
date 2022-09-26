@@ -112,8 +112,12 @@
         if(notes.length == 0){
             container.innerText = ""
         }
+         
+
+        
 
             let max_desc_length = MAX_DECRIPTION_LENGTH.max_desc_length
+            let date = new Date();
 
             let title = noteTitle.value.trim();
             let body = noteBody.innerHTML.trim();
@@ -130,6 +134,7 @@
                 let note =  notes.find(card => selectedNoteId == card.id);
                 note.title = title;
                 note.body = body;
+                note.date = date;
     
     
                //DOM change
@@ -137,6 +142,8 @@
                 cardTitle.innerText = title;
             
                let cardBody = selectedNote.querySelector(".card-desc");
+               let noteDate = selectedNote.querySelector(".note-date");
+               noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
                
                
                cardBody.innerText = `${bodyText.substring(0, max_desc_length)}
@@ -150,11 +157,12 @@
             }else{
                
                 let id = generateUniqueId();
-        
+            
                 let newNote = {
                    id: id,
                    title: title,
-                   body: body
+                   body: body,
+                   date: date
                 }
         
                 // push new note to the array
@@ -168,7 +176,9 @@
                 cardTitle.textContent = title;
             
                 let cardBody = card.querySelector(".card-desc");
-        
+
+                let noteDate = card.querySelector(".note-date");
+                noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
         
                
                 cardBody.textContent = `${bodyText.substring(0, max_desc_length)}
@@ -276,3 +286,5 @@
    
 
 })();
+
+
