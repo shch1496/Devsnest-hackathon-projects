@@ -48,7 +48,8 @@
     height: 220px;
     /* object-fit: cover; */
     border-radius: 10px;
-    background-color: #FFFFF0;
+    /* background-color: #FFFFF0; */
+    background: #f5f6f7;
   
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 30px;
