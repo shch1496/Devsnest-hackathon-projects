@@ -3,7 +3,6 @@
     const notepad = document.querySelector(".notepad")
     const addNote = document.querySelector(".add-note");
     const closeNote = document.querySelector(".close-btn");
-    textarea = document.querySelector("#autoresizing");
     const saveNote = document.querySelector(".save-btn")
     const noteTitle = document.querySelector(".note-title");
     const noteBody = document.querySelector(".note-body");

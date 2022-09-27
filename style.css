@@ -271,9 +271,7 @@ text-shadow: 1px 1px;
 .note-date {
 margin-bottom: 1em;
 color: rgb(82, 78, 78);
-text-decoration: underline;
-text-decoration-style: wavy;
-
+text-align: center;
 
 }
 
