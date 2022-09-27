@@ -155,14 +155,20 @@
     
     
             }else{
+
+
                
                 let id = generateUniqueId();
+
+                let cardColorIdx = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+               
             
                 let newNote = {
                    id: id,
                    title: title,
                    body: body,
-                   date: date
+                   date: date,
+                   colorIdx: cardColorIdx
                 }
         
                 // push new note to the array
@@ -190,9 +196,8 @@
                 card.setAttribute("data-card-id", id);
                 
                 // Random nos between 0 to 4
-                let cardColorIdx = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+          
                 let generateRandomCardColors = cardColors[cardColorIdx];
-
                 card.classList.add(generateRandomCardColors)
 
                 container.append(card);
@@ -336,13 +341,18 @@
         let noteDate = card.querySelector(".note-date");
         let date = new Date(notes[i].date)
         noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
+       
+        let body = notes[i].body;
+        body = body.replace(new RegExp('<[^>]*>', 'g'), '')
 
-        cardBody.textContent = `${notes[i].body.substring(0, max_desc_length)}
-            ${notes[i].body.length > max_desc_length ? "..." : ""}
+        cardBody.textContent = `${body.substring(0, max_desc_length)}
+            ${body.length > max_desc_length ? "..." : ""}
         `
        
         card.setAttribute("data-card-id", notes[i].id);
-        
+
+        let generateRandomCardColors = cardColors[notes[i].colorIdx];
+        card.classList.add(generateRandomCardColors)
 
         container.append(card);
         cardDeleteBtn.addEventListener("click", handleDeleteClick)
