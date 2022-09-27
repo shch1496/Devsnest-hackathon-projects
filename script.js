@@ -203,7 +203,7 @@
                 
         }
 
-        
+        addToLocalStorage();
         closeNote.dispatchEvent(new Event("click")); 
         // noteBody.innerText = ""
         // noteTitle.value = ""
@@ -253,7 +253,7 @@
      
         notes = newNotes;
 
-
+        deleteFromLocalStorage()
         container.removeChild(card);
     }
 
@@ -309,7 +309,63 @@
    
 
 
-   
+   //add notes to local storage
+
+   function addToLocalStorage(){
+    let jsonData= JSON.stringify(notes);
+    localStorage.setItem("notes", jsonData)
+   }
+
+   function loadFromLocalStorage(){
+    let jsonData = localStorage.getItem("notes");
+    if(!jsonData){
+        return;
+
+    }
+
+    notes = JSON.parse(jsonData);
+    let max_desc_length = MAX_DECRIPTION_LENGTH.max_desc_length
+    for(let i=0; i<notes.length; i++){
+          
+        let cardTemplate = templates.content.querySelector(".card");
+        let card = document.importNode(cardTemplate, true);
+        let cardDeleteBtn = card.querySelector(".card-delete");
+        let cardTitle = card.querySelector(".card-title");
+        cardTitle.textContent = notes[i].title;
+        let cardBody = card.querySelector(".card-desc");
+        let noteDate = card.querySelector(".note-date");
+        let date = new Date(notes[i].date)
+        noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
+
+        cardBody.textContent = `${notes[i].body.substring(0, max_desc_length)}
+            ${notes[i].body.length > max_desc_length ? "..." : ""}
+        `
+       
+        card.setAttribute("data-card-id", notes[i].id);
+        
+
+        container.append(card);
+        cardDeleteBtn.addEventListener("click", handleDeleteClick)
+
+        card.addEventListener("click", handleCardClick)
+    }
+   }
+
+
+   function deleteFromLocalStorage(){
+    let jsonData = localStorage.getItem("notes");
+    if(!jsonData){
+        return;
+
+    }
+
+    jsonData = notes
+    jsonData= JSON.stringify(jsonData);
+    localStorage.setItem("notes", jsonData)
+
+   }
+
+   loadFromLocalStorage();
 
 })();
 
