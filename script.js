@@ -242,7 +242,7 @@
 
 
   function handleDeleteClick(event){
-    console.log("Before", notes)
+
   
     const confirmDelete = confirm("Are you sure you want to delete this note?");
 
@@ -252,7 +252,7 @@
         let newNotes = notes.filter(note => note.id != cardId);
      
         notes = newNotes;
-        console.log("After", notes)
+
 
         container.removeChild(card);
     }
