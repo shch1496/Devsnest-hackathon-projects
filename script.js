@@ -26,7 +26,7 @@
 
 
     const MAX_DECRIPTION_LENGTH = {
-           max_title_length: 14,
+           max_title_length: 11,
            max_desc_length: 50
     }
 
@@ -140,15 +140,14 @@
     
                //DOM change
                let cardTitle = selectedNote.querySelector(".card-title");
-                cardTitle.innerText = `${title.substring(0, max_title_length)}`
+                cardTitle.innerText = `${title.substring(0, max_title_length)}${title.length > max_title_length ? "..." : ""}`
             
                let cardBody = selectedNote.querySelector(".card-desc");
                let noteDate = selectedNote.querySelector(".note-date");
                noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
                
                
-               cardBody.innerText = `${bodyText.substring(0, max_desc_length)}
-               ${bodyText.length > max_desc_length ? "..." : ""}`
+               cardBody.innerText = `${bodyText.substring(0, max_desc_length)}${bodyText.length > max_desc_length ? "..." : ""}`
           
                
                selectedNoteId=""
@@ -182,8 +181,7 @@
                 cardDeleteBtn.addEventListener("click", handleDeleteClick)
 
                 let cardTitle = card.querySelector(".card-title");
-                cardTitle.textContent = `${title.substring(0, max_title_length)}
-            `
+                cardTitle.textContent = `${title.substring(0, max_title_length)}${title.length > max_title_length ? "..." : ""}`
            
                 let cardBody = card.querySelector(".card-desc");
 
@@ -191,9 +189,7 @@
                 noteDate.textContent = `${date.toLocaleString("en-In", {year: 'numeric', month: 'short', day:'numeric',  hour: "numeric", minute:"numeric"})}`
         
                
-                cardBody.textContent = `${bodyText.substring(0, max_desc_length)}
-                    ${bodyText.length > max_desc_length ? "..." : ""}
-                `
+                cardBody.textContent = `${bodyText.substring(0, max_desc_length)}${bodyText.length > max_desc_length ? "..." : ""}`
                
                 card.setAttribute("data-card-id", id);
                 
@@ -339,7 +335,7 @@
         let card = document.importNode(cardTemplate, true);
         let cardDeleteBtn = card.querySelector(".card-delete");
         let cardTitle = card.querySelector(".card-title");
-        cardTitle.textContent = `${notes[i].title.substring(0, max_title_length)} `
+        cardTitle.textContent = `${notes[i].title.substring(0, max_title_length)}${notes[i].title.length > max_title_length ? "..." : ""}`
         let cardBody = card.querySelector(".card-desc");
         let noteDate = card.querySelector(".note-date");
         let date = new Date(notes[i].date)
@@ -348,9 +344,7 @@
         let body = notes[i].body;
         body = body.replace(new RegExp('<[^>]*>', 'g'), '')
 
-        cardBody.textContent = `${body.substring(0, max_desc_length)}
-            ${body.length > max_desc_length ? "..." : ""}
-        `
+        cardBody.textContent = `${body.substring(0, max_desc_length)}${body.length > max_desc_length ? "..." : ""}`
        
         card.setAttribute("data-card-id", notes[i].id);
 
