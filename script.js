@@ -26,7 +26,7 @@
 
 
     const MAX_DECRIPTION_LENGTH = {
-           max_desc_length: 70
+           max_desc_length: 60
     }
 
     Object.freeze(MAX_DECRIPTION_LENGTH);

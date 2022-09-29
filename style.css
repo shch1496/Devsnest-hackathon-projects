@@ -7,9 +7,12 @@ body {
   margin: 0;
   font-family: 'IBM Plex Mono', monospace;
   background: #f5f6f7;
+  /* background: #ebf4e9; */
 
-  background-color: #ffffff;
-background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%235e5868' fill-opacity='0.2'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%235e5868' fill-opacity='0.2'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+
+
 }
 
 .header {
@@ -46,51 +49,118 @@ background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox=
 }
 
 .card {
-  width: 100%;
-  max-width: 350px;
-  height: 220px;
-  /* object-fit: cover; */
-  border-radius: 10px;
-  /* background-color: #FFFFF0; */
-  background: hsl(228, 58%, 86%);
-
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 10px 0px; */
-  box-shadow: 0 10px 10px -5px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:12rem;
+  width:15rem;
+  padding:1em;
   transition: transform 0.7s ease-in-out;
-  cursor: pointer;
-  overflow-wrap: break-word;
-
-  border-top: 10px solid  #33332d;
-  background-color: #acd3c1;
-  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2308050c' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-  
   position: relative;
-
+  cursor: pointer;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
+
+
 .card > .card-title{
-  text-align: center;
-  font-size: 1.5rem;
-      
+text-align: center;
+font-size: 1.5rem;
+
 
 
 }
 
 .card > .card-desc{
-  padding-top: 20px;
-  text-align: justify;
-
-
+padding-top: 20px;
+text-align: justify;
 
 
 }
 
-.card:hover {
-  transform: scale(1.04);
- 
+
+/* .card:hover {
+transform: scale(1.04);
+
+} */
+.note-date {
+margin-bottom: 1em;
+margin-top: -0.5rem;
+color: rgb(82, 78, 78);
+text-align: center;
+font-size: 0.9rem;
+
 }
 
+
+.card-delete {
+position: absolute;
+bottom: 5%;
+right: 5%;
+}
+
+.card-delete:hover{
+animation: tilt-shaking 1s;
+background-color: #33332d;
+color: #fff;
+padding: 0.3rem;
+border-radius: 5px;
+}
+
+
+
+.card:nth-child(even){
+transform:rotate(4deg);
+position:relative;
+top:5px;
+}
+
+.card:nth-child(odd){
+transform:rotate(-3deg);
+position:relative;
+top:-5px;
+}
+
+/* .card:nth-child(3n){
+transform:rotate(-3deg);
+position:relative;
+top:-5px;
+}
+.card:nth-child(5n){
+transform:rotate(5deg);
+position:relative;
+top:-10px;
+} */
+
+.card:hover, .card:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  transform: scale(1.1);
+  position:relative;
+  z-index:1;
+}
+
+
+.card:nth-child(odd) .pin {
+  position: absolute;
+  top: -32%;
+  right: -17%;
+  width: 50%;
+  transform: rotate(295deg);
+  filter: drop-shadow(1px 3px 2px rgb(0 0 0 / 0.4));
+}
+
+.card:nth-child(even) .pin{
+  position: absolute;
+  top: -32%;
+  left: -17%;
+  width: 50%;
+  filter: drop-shadow(1px 3px 2px rgb(0 0 0 / 0.4));
+
+}
 
 
 button {
@@ -268,25 +338,17 @@ text-shadow: 1px 1px;
 }
 
 
-.note-date {
-margin-bottom: 1em;
-margin-top: -0.5rem;
-color: rgb(82, 78, 78);
-text-align: center;
-
-}
-
 .card-color1{
-background-color: #dfcae1;
+background-color: #F6DFEB;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23fefeff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .card-color2{
-background-color: #b7cadb;
+background-color: #DEEDF0;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23fefeff' fill-opacity='0.48' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 .card-color3{
-background-color: #ffbfb0;
+background-color:#FAFDD6;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23e5ddf1' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 .card-color4{
@@ -299,19 +361,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 
-.card-delete {
-position: absolute;
-bottom: 5%;
-right: 5%;
-}
 
-.card-delete:hover{
-  animation: tilt-shaking 1s;
-  background-color: #33332d;
-  color: #fff;
-  padding: 0.3rem;
-  border-radius: 5px;
-}
 
 
 @keyframes tilt-shaking {
