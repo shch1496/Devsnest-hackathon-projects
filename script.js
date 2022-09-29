@@ -26,6 +26,7 @@
 
 
     const MAX_DECRIPTION_LENGTH = {
+           max_title_length: 14,
            max_desc_length: 50
     }
 
@@ -114,8 +115,8 @@
         }
          
 
-        
-
+            
+            let max_title_length = MAX_DECRIPTION_LENGTH.max_title_length;
             let max_desc_length = MAX_DECRIPTION_LENGTH.max_desc_length
             let date = new Date();
 
@@ -139,7 +140,7 @@
     
                //DOM change
                let cardTitle = selectedNote.querySelector(".card-title");
-                cardTitle.innerText = title;
+                cardTitle.innerText = `${title.substring(0, max_title_length)}`
             
                let cardBody = selectedNote.querySelector(".card-desc");
                let noteDate = selectedNote.querySelector(".note-date");
@@ -181,8 +182,9 @@
                 cardDeleteBtn.addEventListener("click", handleDeleteClick)
 
                 let cardTitle = card.querySelector(".card-title");
-                cardTitle.textContent = title;
-            
+                cardTitle.textContent = `${title.substring(0, max_title_length)}
+            `
+           
                 let cardBody = card.querySelector(".card-desc");
 
                 let noteDate = card.querySelector(".note-date");
@@ -329,6 +331,7 @@
     }
 
     notes = JSON.parse(jsonData);
+    let max_title_length = MAX_DECRIPTION_LENGTH.max_title_length
     let max_desc_length = MAX_DECRIPTION_LENGTH.max_desc_length
     for(let i=0; i<notes.length; i++){
           
@@ -336,7 +339,7 @@
         let card = document.importNode(cardTemplate, true);
         let cardDeleteBtn = card.querySelector(".card-delete");
         let cardTitle = card.querySelector(".card-title");
-        cardTitle.textContent = notes[i].title;
+        cardTitle.textContent = `${notes[i].title.substring(0, max_title_length)} `
         let cardBody = card.querySelector(".card-desc");
         let noteDate = card.querySelector(".note-date");
         let date = new Date(notes[i].date)
